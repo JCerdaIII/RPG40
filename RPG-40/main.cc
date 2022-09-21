@@ -54,13 +54,25 @@ void print_world(size_t player_row, size_t player_col){
 }
 
 int main() {
-//	for (int i = 0; i < 1; i++) {
+	int ans = 0;
+	for (int i = 0; i < 1; i++) {
 		
-//	cout << YELLOW << "Title" << endl;
-//		cout << RESET;
-//		sleep(3);
-//		clearscreen();
-//	}
+	cout << YELLOW << "Title" << endl;
+		cout << RESET;
+		sleep(2);
+		clearscreen();
+	}
+
+	for (int i = 0; i < 1; i++){
+	cout << CYAN << "The main island of the character lives on is called Tropical Paradise." << endl;
+	cout << "This island has been around for many years and has been replaced by Kings and queens." << endl;
+	cout << "This island has been in peace for a very long time until the day that Rok arrived." << endl; 
+	cout << "He came to the island and stole all of the wealth from the people in the village and kidnapped the king and queen." << endl;
+	cout << "Hence who is a trained warrior is on the quest to defeat Rok and gets the village's wealth" << endl;
+	cout << RESET;
+	sleep (2);
+	clearscreen();
+	}
 	
 	const int ROWS = world_map.size();
 	const int COLS = world_map.at(0).size();
@@ -72,10 +84,10 @@ int main() {
 	while(true){
 		int c = toupper(quick_read());
 		if (c == 'Q') break;
-		if (c == 'W' or c == UP_ARROW) row--;
-		if (c == 'S' or c == DOWN_ARROW) row++;
-		if (c == 'A' or c == LEFT_ARROW) col--;
-		if (c == 'D' or c == RIGHT_ARROW) col++;
+		if (c == 'W' /*or c == UP_ARROW*/) row--;
+		if (c == 'S' /*or c == DOWN_ARROW*/) row++;
+		if (c == 'A' /*or c == LEFT_ARROW*/) col--;
+		if (c == 'D' /*or c == RIGHT_ARROW*/) col++;
 		if (!(row == last_row and col == last_col)) {
 			print_world(row,col);
 			last_row = row;
@@ -89,7 +101,20 @@ int main() {
 		if (get_world_location(row, col) == '1'){
 			set_world_location(row,col,' ');
 			movecursor(ROWS+2,0);
-			cout << "You have found 1!" << endl;
+			cout << "What is 1 + 1?" << endl;
+			cin >> ans;
+			while (ans != 2){
+			if (!cin) {
+			cout << "Wrong answer" << endl;
+			cin >> ans;
+			}
+			cout << "Wrong answer" << endl;
+			cin >> ans;
+			}
+			if (ans == 2){
+				cout << "Good Job" << endl;
+			}
+			
 		}
 		if (get_world_location(row, col) == '5'){
 			movecursor(ROWS+2,0);
