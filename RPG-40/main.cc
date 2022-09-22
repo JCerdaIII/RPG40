@@ -54,7 +54,7 @@ void print_world(size_t player_row, size_t player_col){
 }
 
 int main() {
-	int ans = 0;
+	//int ans = 0;
 	for (int i = 0; i < 1; i++) {
 		
 	cout << YELLOW << "Title" << endl;
@@ -102,17 +102,27 @@ int main() {
 			set_world_location(row,col,' ');
 			movecursor(ROWS+2,0);
 			cout << "What is 1 + 1?" << endl;
+			cout << YELLOW << "Please only enter a number or the game will quit!!" << endl;
+			cout << RESET;
+			int ans = 0;
+			set_raw_mode(false);
 			cin >> ans;
+			//if (!cin){
+			//	cout << "You did not follow the instructions correctly!!!" << endl;
+			//	return 0;
+			//}	
+			//set_raw_mode(true);
 			while (ans != 2){
-			if (!cin) {
-			cout << "Wrong answer" << endl;
-			cin >> ans;
+			if (!cin){
+				cout << "You did not follow the instructions correctly!!!" << endl;
+				return 0;
 			}
 			cout << "Wrong answer" << endl;
 			cin >> ans;
 			}
 			if (ans == 2){
 				cout << "Good Job" << endl;
+			set_raw_mode(true);
 			}
 			
 		}
