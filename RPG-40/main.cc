@@ -324,12 +324,75 @@ int main() {
 					combatChance = rand() % 100;
 					if (combatChance <= 49 && combatChance >= 0) {
 						cout << "Hence's strike made contact!!!" << endl;
-						miniBossHealth = miniBossHealth -  15;
+						miniBossHealth = miniBossHealth - 15;
 						if (miniBossHealth > 0) {
-							cout << "Thrak's health is " << miniBossHealth - 15 << "/100 HP" << endl;
+							cout << "Thrak's health is " << miniBossHealth << "/100 HP" << endl;
 						}
 					} else {
 						cout << "OH NO!!! Hence's strike made no contact" << endl;
+						cout << "Thrak lunges at Hence!!!" << endl;
+						combatChance = rand() % 100;
+						if (combatChance <= 49 && combatChance >= 0) {
+							cout << "Thrak inflicted damage on Hence!!!" << endl;
+							userHealth = userHealth - 10;
+							if (userHealth > 0) {
+								cout << "Hence's health is " << userHealth << "/100 HP" << endl;
+							} else if (userHealth <= 0) {
+								cout << "Hence has been defeated!!!" << endl;
+								cout << "GAME OVER" << endl;
+								return 0;
+							}
+						} else {
+							cout << "Thrak's attack missed!!!" << endl;
+						}
+						if (ans1 == 'i') {
+							cout << "Would you like to change your weapon, take a potion, or raise stats?" << endl;
+							cin >> inventoryAns; // Must fix later!!!
+						}
+					}
+				}
+			}
+			cout << "Thrak: Argh I'm dying" << endl;
+			cout << "Hence defeated Thrak!!!" << endl;
+			set_raw_mode(true);
+
+		}
+		if (get_world_location(row, col) == '7') {
+			set_world_location(row, col, ' ');
+			movecursor(ROWS + 2, 0);
+			cout << "You have enetered a duel with the Boss, Rok!!!" << endl;
+			cout << YELLOW << "What will Hence do?" << endl;
+			cout << RESET;
+			set_raw_mode(false);
+			while (bossHealth > 0) {
+				cout << "f: Fight or i: Inventory" << endl;
+				cin >> ans1;
+				if (ans1 == 'f') {
+					cout << "Hence tries to strike the enemy!!!" << endl;
+					combatChance = rand() % 100;
+					if (combatChance <= 49 && combatChance >= 0) {
+						cout << "Hence's strike made contact!!!" << endl;
+						bossHealth = bossHealth - 15;
+						if (bossHealth > 0) {
+							cout << "Rok's health is " << bossHealth << "/200 HP" << endl;
+						}
+					} else {
+						cout << "OH NO!!! Hence's strike made no contact" << endl;
+						cout << "Rok lunges at Hence!!!" << endl;
+						combatChance = rand() % 100;
+						if (combatChance <= 49 && combatChance >= 0) {
+							cout << "Rok inflicted damage on Hence!!!" << endl;
+							userHealth = userHealth - 20;
+							if (userHealth > 0) {
+								cout << "Hence's health is " << userHealth << "/100 HP" << endl;
+							} else if (userHealth <= 0) {
+								cout << "Hence has been defeated!!!" << endl;
+								cout << "GAME OVER" << endl;
+								return 0;
+							}
+						} else {
+							cout << "Rok's attack missed!!!" << endl;
+						}
 					}
 				}
 				if (ans1 == 'i') {
@@ -337,42 +400,10 @@ int main() {
 					cin >> inventoryAns; // Must fix later!!!
 				}
 			}
-			cout << "Hence defeated Thrak!!!" << endl;
+			cout << "Rok: Argh I'm dying" << endl;
+			cout << "Hence defeated Rok!!!" << endl;
 			set_raw_mode(true);
 		}
-	}
-	if (get_world_location(row, col) == '7') {
-		set_world_location(row, col, ' ');
-		movecursor(ROWS + 2, 0);
-		cout << "You have enetered a duel with the Boss, Rok!!!" << endl;
-		cout << YELLOW << "What will Hence do?" << endl;
-		cout << RESET;
-		set_raw_mode(false);
-		while (bossHealth > 0) {
-			cout << "f: Fight or i: Inventory" << endl;
-			cin >> ans1;
-			if (ans1 == 'f') {
-				cout << "Hence tries to strike the enemy!!!" << endl;
-				combatChance = rand() % 100;
-				if (combatChance <= 49 && combatChance >= 0) {
-					cout << "Hence's strike made contact!!!" << endl;
-					bossHealth = bossHealth - 15;
-					if (bossHealth > 0) {
-						cout << "Rok's health is " << miniBossHealth - 15 << "/200 HP" << endl;
-					} else if (bossHealth <= 0) {
-						cout << "Argh I'm dying" << endl;
-					}
-				} else {
-					cout << "OH NO!!! Hence's strike made no contact" << endl;
-				}
-			}
-			if (ans1 == 'i') {
-				cout << "Would you like to change your weapon, take a potion, or raise stats?" << endl;
-				cin >> inventoryAns; // Must fix later!!!
-			}
-		}
-		cout << "Hence defeated Thrak!!!" << endl;
-		set_raw_mode(true);
-	}
 
+	}
 }
