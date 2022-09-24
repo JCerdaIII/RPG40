@@ -15,7 +15,7 @@ vector<string> world_map = {
 
 	"***********************",
 	"*   5         8        *",
-	"*        9           b *",
+	"*        7           b *",
 	"*   7                  *",
 	"*             4        *",
 	"*      3               *",
@@ -70,16 +70,20 @@ void print_world(size_t player_row, size_t player_col) {
 }
 
 
+
 int main() {
 	char ans1;
 	char inventoryAns;
 	int weaponSword = 1;
 //	int weaponAxe;
 //	int weaponHalberd;
+	int i;
 	int combatChance;
 	int userHealth = 100;
 	int miniBossHealth = 100;
 	int bossHealth = 200;
+	vector <string> inv(5);
+	inv.at(0) = "Sword";
 	string ans2;
 	srand(time(NULL));
 	for (int i = 0; i < 1; i++) {
@@ -144,6 +148,12 @@ int main() {
 	while (true) {
 		int c = toupper(quick_read());
 		if (c == 'Q') break;
+		if (c == 'I') {
+			cout << "Your inventory has 5 spots 3 for wepons and 2 for potions" << endl;
+			for (i = 0; i < inv.size(); ++i){
+			cout << inv.at(i) << endl;
+			}
+		}
 		if (c == 'W' /*or c == UP_ARROW*/) row--;
 		if (c == 'S' /*or c == DOWN_ARROW*/) row++;
 		if (c == 'A' /*or c == LEFT_ARROW*/) col--;
@@ -156,6 +166,7 @@ int main() {
 			cout << BLUE << "ROW: " << row << RED << " COL: " << col << RESET;
 			movecursor(ROWS + 2, 0);
 			cout << "Welcome to the game" << endl;
+			cout << "Press 'I' to check inventory" << endl;
 			cout.flush();
 		}
 
@@ -304,17 +315,17 @@ int main() {
 		}
 
 
-		if (get_world_location(row, col) == '8') {
+		if (get_world_location(row, col) == '🪓') {
 			set_world_location(row, col, ' ');
 			movecursor(ROWS + 2, 0);
 			cout << "Hence found a sturdy axe!!!" << endl;
-			weaponAxe = 1;
+			inv.at(1)  = "Axe";
 		}
 		if (get_world_location(row, col) == '9') {
 			set_world_location(row, col, ' ');
 			movecursor(ROWS + 2, 0);
 			cout << "Hence found a halberd!!!" << endl;
-			weaponHalberd = 1;
+			inv.at(2) = "Helberd";
 		}
 
 
