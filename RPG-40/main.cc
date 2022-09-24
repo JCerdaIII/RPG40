@@ -14,8 +14,8 @@ using namespace std;
 vector<string> world_map = {
 
 	"***********************",
-	"*   5                  *",
-	"*                   b  *",
+	"*   5         8        *",
+	"*        9           b *",
 	"*   7                  *",
 	"*             4        *",
 	"*      3               *",
@@ -61,7 +61,7 @@ void print_world(size_t player_row, size_t player_col) {
 	movecursor(0, 0);
 	for (size_t row = 0; row < world_map.size(); row++) {
 		for (size_t col = 0; col < world_map.at(row).size(); col++) {
-			if (row == player_row and col == player_col) cout << 'h';
+			if (row == player_row and col == player_col) cout << 't';
 			else
 				cout << world_map.at(row).at(col);
 		}
@@ -69,9 +69,13 @@ void print_world(size_t player_row, size_t player_col) {
 	}
 }
 
+
 int main() {
 	char ans1;
 	char inventoryAns;
+	//int weaponSword = 1;
+	//int weaponAxe;
+	//int weaponHalberd;
 	int combatChance;
 	int userHealth = 100;
 	int miniBossHealth = 100;
@@ -406,4 +410,17 @@ int main() {
 		}
 
 	}
+	if (get_world_location(row, col) == '8') {
+		set_world_location(row, col, ' ');
+		movecursor(ROWS + 2, 0);
+		cout << "Hence found a sturdy axe!!!" << endl;
+		//weaponAxe = 1;
+	}
+	if (get_world_location(row, col) == '9') {
+		set_world_location(row, col, ' ');
+		movecursor(ROWS + 2, 0);
+		cout << "Hence found a halberd!!!" << endl;
+		//weaponHalberd = 1;
+	}
+
 }
