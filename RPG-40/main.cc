@@ -74,8 +74,8 @@ int main() {
 	char ans1;
 	char inventoryAns;
 	int weaponSword = 1;
-	int weaponAxe;
-	int weaponHalberd;
+//	int weaponAxe;
+//	int weaponHalberd;
 	int combatChance;
 	int userHealth = 100;
 	int miniBossHealth = 100;
