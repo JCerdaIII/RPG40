@@ -73,6 +73,7 @@ void print_world(size_t player_row, size_t player_col) {
 int main() {
 	char ans1;
 	char inventoryAns;
+	char weaponsAns;
 	int weaponSword = 1;
 	int weaponAxe;
 	int weaponHalberd;
@@ -327,15 +328,14 @@ int main() {
 		if (c == ERR) usleep(1'000'000 / FPS);
 
 
-
 		if (get_world_location(row, col) == '6') {
 			set_world_location(row, col, ' ');
 			movecursor(ROWS + 2, 0);
-			cout << "You have enetered a duel with the mini Boss of Rok, Thrak!!!" << endl;
+			cout << "You have enetered a duel with the mini Boss, Thrak!!!" << endl;
 			cout << YELLOW << "What will Hence do?" << endl;
 			cout << RESET;
 			set_raw_mode(false);
-			while (miniBossHealth > 0) {
+			while (bossHealth > 0) {
 				cout << "f: Fight or i: Inventory" << endl;
 				cin >> ans1;
 				if (ans1 == 'f') {
@@ -353,7 +353,7 @@ int main() {
 						combatChance = rand() % 100;
 						if (combatChance <= 49 && combatChance >= 0) {
 							cout << "Thrak inflicted damage on Hence!!!" << endl;
-							userHealth = userHealth - 10;
+							userHealth = userHealth - 20;
 							if (userHealth > 0) {
 								cout << "Hence's health is " << userHealth << "/100 HP" << endl;
 							} else if (userHealth <= 0) {
@@ -364,18 +364,20 @@ int main() {
 						} else {
 							cout << "Thrak's attack missed!!!" << endl;
 						}
-						if (ans1 == 'i') {
-							cout << "Would you like to change your weapon, take a potion, or raise stats?" << endl;
-							cin >> inventoryAns; // Must fix later!!!
-						}
 					}
+				}
+				if (ans1 == 'i') {
+					cout << "Would you like to change your weapon, take a potion, or raise stats?" << endl;
+					cin >> inventoryAns; // Must fix later!!!
 				}
 			}
 			cout << "Thrak: Argh I'm dying" << endl;
 			cout << "Hence defeated Thrak!!!" << endl;
 			set_raw_mode(true);
-
 		}
+
+
+
 		if (get_world_location(row, col) == '7') {
 			set_world_location(row, col, ' ');
 			movecursor(ROWS + 2, 0);
