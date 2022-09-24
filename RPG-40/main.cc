@@ -73,9 +73,9 @@ void print_world(size_t player_row, size_t player_col) {
 int main() {
 	char ans1;
 	char inventoryAns;
-	//int weaponSword = 1;
-	//int weaponAxe;
-	//int weaponHalberd;
+	int weaponSword = 1;
+	int weaponAxe;
+	int weaponHalberd;
 	int combatChance;
 	int userHealth = 100;
 	int miniBossHealth = 100;
@@ -303,6 +303,21 @@ int main() {
 
 		}
 
+
+		if (get_world_location(row, col) == '8') {
+			set_world_location(row, col, ' ');
+			movecursor(ROWS + 2, 0);
+			cout << "Hence found a sturdy axe!!!" << endl;
+			weaponAxe = 1;
+		}
+		if (get_world_location(row, col) == '9') {
+			set_world_location(row, col, ' ');
+			movecursor(ROWS + 2, 0);
+			cout << "Hence found a halberd!!!" << endl;
+			weaponHalberd = 1;
+		}
+
+
 		if (get_world_location(row, col) == 'b') {
 			movecursor(ROWS + 2, 0);
 			cout << "YOU WIN!!!!" << endl;
@@ -410,17 +425,4 @@ int main() {
 		}
 
 	}
-	if (get_world_location(row, col) == '8') {
-		set_world_location(row, col, ' ');
-		movecursor(ROWS + 2, 0);
-		cout << "Hence found a sturdy axe!!!" << endl;
-		//weaponAxe = 1;
-	}
-	if (get_world_location(row, col) == '9') {
-		set_world_location(row, col, ' ');
-		movecursor(ROWS + 2, 0);
-		cout << "Hence found a halberd!!!" << endl;
-		//weaponHalberd = 1;
-	}
-
 }
