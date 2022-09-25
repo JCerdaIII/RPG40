@@ -15,7 +15,7 @@ vector<string> world_map = {
 
 	"***********************",
 	"*   5         8        *",
-	"*        7           b *",
+	"*        9           b *",
 	"*   7                  *",
 	"*             4        *",
 	"*      3               *",
@@ -71,6 +71,7 @@ void print_world(size_t player_row, size_t player_col) {
 
 
 
+
 int main() {
 	char ans1;
 	char inventoryAns;
@@ -90,50 +91,41 @@ int main() {
 
 		cout << YELLOW << "Title" << endl;
 		cout << RESET;
-		sleep(2);
+		sleep(5);
 		clearscreen();
 	}
 
 	for (int i = 0; i < 1; i++) {
-		cout << CYAN << "The main island of the character lives on is called Tropical Paradise." << endl;
+		cout << WHITE << "The main island of the character lives on is called Tropical Paradise." << endl;
 		cout << "This island has been around for many years and has been replaced by Kings and queens." << endl;
 		cout << "This island has been in peace for a very long time until the day that Rok arrived." << endl;
 		cout << "He came to the island and stole all of the wealth from the people in the village and kidnapped the king and queen." << endl;
 		cout << "Hence who is a trained warrior is on the quest to defeat Rok and gets the village's wealth" << endl;
-		cout << "Hence: “I will take you down, freak.” minion: “ ha, don’t make me laugh.” (battle starts)" << endl;
-		cout << "Minion: “ you will never beat Rok.” Hence: “ I will and save my village.”" << endl;
+		cout << RESET;
+		cout << CYAN << "Hence: “I will take you down, freak.” minion: “ ha, don’t make me laugh.” (battle starts)" << endl;
+		cout << RESET;
+		cout << YELLOW << "Minion: “ you will never beat Rok.” Hence: “ I will and save my village.”" << endl;
 		cout << "Minion: “ How will you do that, you’re a weak creature. Hence: “you’re all talk, actions will prove who’s stronger.”" << endl;
 		cout << "Minion: “ Ok, we’ll have a battle in 3 days and if you win you’ll get the village’s wealth back but if I win then I’ll keep the wealth I’ve stolen and control the whole village”" << endl;
-		cout << "” Hence: “ Ok, see you then loser”" << endl;
 		cout << RESET;
-		sleep(2);
+		cout << CYAN << "” Hence: “ Ok, see you then loser”" << endl;
+		cout << RESET;
+		sleep(7);
 		clearscreen();
 	}
 
 
 	for (int i = 0; i < 1; i++) {
-		cout << CYAN << "Hence: “I will take you down, freak.”" << endl;
-		cout << "minion: “ ha, don’t make me laugh.” (battle starts)" << endl;
-		cout << "Minion: “ you will never beat Rok.”" << endl;
-		cout << "Hence: “ I will and save my village.”" << endl;
-		cout << "Minion: “ How will you do that, you’re a weak creature." << endl;
-		cout << "Hence: “you’re all talk, actions will prove who’s stronger.”" << endl;
-		cout << "Minion: “ Ok, we’ll have a battle in 3 days and if you win you’ll get the village’s wealth back but if I win then I’ll keep the wealth I’ve stolen and control the whole village”" << endl;
-		cout << "” Hence: “ Ok, see you then loser”" << endl;
-		cout << RESET;
-		sleep(2);
-		clearscreen();
-	}
-
-	for (int i = 0; i < 1; i++) {
-		cout << CYAN << "Because Hence felt responsible for everyone in the village, he felt he should win, but he knew he wasn't strong enough to win, so he was highly stressed out just at the thought of losing." << endl;
+		cout << WHITE << "Because Hence felt responsible for everyone in the village, he felt he should win, but he knew he wasn't strong enough to win, so he was highly stressed out just at the thought of losing." << endl;
 		cout << "During a night walk, he met a strange man who told him there was a faraway island and that if he went there and solved all the puzzles, he would have a special power that enabled him to defeat anyone." << endl;
-		cout << "Hence: “Wow, but how can I get there? I need to go fast because the battle is in 3 days.”" << endl;
-		cout << "A strange man: “At the highest point of this mountain, there is a magic carpet that you can take if you answer the question correctly, and it will take you there and back in two days.”" << endl;
+		cout << RESET;
+		cout << CYAN << "Hence: “Wow, but how can I get there? I need to go fast because the battle is in 3 days.”" << endl;
+		cout << RESET;
+		cout << GREEN <<"A strange man: “At the highest point of this mountain, there is a magic carpet that you can take if you answer the question correctly, and it will take you there and back in two days.”" << endl;
 		cout << "" << endl;
 		cout << "" << endl;
 		cout << RESET;
-		sleep(2);
+		sleep(7);
 		clearscreen();
 	}
 
@@ -315,7 +307,7 @@ int main() {
 		}
 
 
-		if (get_world_location(row, col) == '🪓') {
+		if (get_world_location(row, col) == '8') {
 			set_world_location(row, col, ' ');
 			movecursor(ROWS + 2, 0);
 			cout << "Hence found a sturdy axe!!!" << endl;
@@ -325,7 +317,7 @@ int main() {
 			set_world_location(row, col, ' ');
 			movecursor(ROWS + 2, 0);
 			cout << "Hence found a halberd!!!" << endl;
-			inv.at(2) = "Helberd";
+			inv.at(2) = "Halberd";
 		}
 
 
@@ -350,6 +342,10 @@ int main() {
 				cout << "f: Fight or i: Inventory" << endl;
 				cin >> ans1;
 				if (ans1 == 'f') {
+					
+							    cout << "s. Sword, a. Axe, or h. halberd" << endl;
+				    cin >> ans1;
+				    if (ans1 == 's') {
 					cout << "Hence tries to strike the enemy!!!" << endl;
 					combatChance = rand() % 100;
 					if (combatChance <= 49 && combatChance >= 0) {
@@ -375,19 +371,86 @@ int main() {
 						} else {
 							cout << "Thrak's attack missed!!!" << endl;
 						}
-						if (ans1 == 'i') {
+						/*if (ans1 == 'i') {
 							cout << "Would you like to change your weapon, take a potion, or raise stats?" << endl;
 							cin >> inventoryAns; // Must fix later!!!
-						}
+						}*/
 					}
 				}
-			}
+            if (ans1 == 'a') {
+					cout << "Hence tries to strike the enemy axe!!!" << endl;
+					combatChance = rand() % 100;
+					if (combatChance <= 14 && combatChance >= 0) {
+						cout << "Hence's strike made contact!!!" << endl;
+						miniBossHealth = miniBossHealth - 45;
+						if (miniBossHealth > 0) {
+							cout << "Thrak's health is " << miniBossHealth << "/100 HP" << endl;
+						}
+					} else {
+						cout << "OH NO!!! Hence's strike made no contact" << endl;
+						cout << "Thrak lunges at Hence!!!" << endl;
+						combatChance = rand() % 100;
+						if (combatChance <= 49 && combatChance >= 0) {
+							cout << "Thrak inflicted damage on Hence!!!" << endl;
+							userHealth = userHealth - 10;
+							if (userHealth > 0) {
+								cout << "Hence's health is " << userHealth << "/100 HP" << endl;
+							} else if (userHealth <= 0) {
+								cout << "Hence has been defeated!!!" << endl;
+								cout << "GAME OVER" << endl;
+								return 0;
+							}
+						} else {
+							cout << "Thrak's attack missed!!!" << endl;
+						}
+						/*if (ans1 == 'i') {
+							cout << "Would you like to change your weapon, take a potion, or raise stats?" << endl;
+							cin >> inventoryAns; // Must fix later!!!
+				
+							}*/
+					}
+				}
+				
+				if (ans1 == 'h') {
+					cout << "Hence tries to strike the enemy halberd!!!" << endl;
+					combatChance = rand() % 100;
+					if (combatChance <= 79 && combatChance >= 0) {
+						cout << "Hence's strike made contact!!!" << endl;
+						miniBossHealth = miniBossHealth - 10;
+						if (miniBossHealth > 0) {
+							cout << "Thrak's health is " << miniBossHealth << "/100 HP" << endl;
+						}
+					} else {
+						cout << "OH NO!!! Hence's strike made no contact" << endl;
+						cout << "Thrak lunges at Hence!!!" << endl;
+						combatChance = rand() % 100;
+						if (combatChance <= 49 && combatChance >= 0) {
+							cout << "Thrak inflicted damage on Hence!!!" << endl;
+							userHealth = userHealth - 10;
+							if (userHealth > 0) {
+								cout << "Hence's health is " << userHealth << "/100 HP" << endl;
+							} else if (userHealth <= 0) {
+								cout << "Hence has been defeated!!!" << endl;
+								cout << "GAME OVER" << endl;
+								return 0;
+							}
+						} else {
+							cout << "Thrak's attack missed!!!" << endl;
+						}
+						
+					}
+				}
+}
+}
+
 			cout << "Thrak: Argh I'm dying" << endl;
 			cout << "Hence defeated Thrak!!!" << endl;
-			set_raw_mode(true);
+			set_raw_mode(true);	
+		
+			}
+		
 
-		}
-		if (get_world_location(row, col) == '7') {
+			if (get_world_location(row, col) == '7') {
 			set_world_location(row, col, ' ');
 			movecursor(ROWS + 2, 0);
 			cout << "You have enetered a duel with the Boss, Rok!!!" << endl;
@@ -395,9 +458,12 @@ int main() {
 			cout << RESET;
 			set_raw_mode(false);
 			while (bossHealth > 0) {
-				cout << "f: Fight or i: Inventory" << endl;
+					cout << "f: Fight or i: Inventory" << endl;
 				cin >> ans1;
 				if (ans1 == 'f') {
+				    cout << "s. Sword, a. Axe, or h. halberd" << endl;
+				    cin >> ans1;
+				    if (ans1 == 's') {
 					cout << "Hence tries to strike the enemy!!!" << endl;
 					combatChance = rand() % 100;
 					if (combatChance <= 49 && combatChance >= 0) {
@@ -412,7 +478,7 @@ int main() {
 						combatChance = rand() % 100;
 						if (combatChance <= 49 && combatChance >= 0) {
 							cout << "Rok inflicted damage on Hence!!!" << endl;
-							userHealth = userHealth - 20;
+							userHealth = userHealth - 10;
 							if (userHealth > 0) {
 								cout << "Hence's health is " << userHealth << "/100 HP" << endl;
 							} else if (userHealth <= 0) {
@@ -423,12 +489,78 @@ int main() {
 						} else {
 							cout << "Rok's attack missed!!!" << endl;
 						}
+						/*if (ans1 == 'i') {
+							cout << "Would you like to change your weapon, take a potion, or raise stats?" << endl;
+							cin >> inventoryAns; // Must fix later!!!
+						}*/
 					}
 				}
-				if (ans1 == 'i') {
-					cout << "Would you like to change your weapon, take a potion, or raise stats?" << endl;
-					cin >> inventoryAns; // Must fix later!!!
+            if (ans1 == 'a') {
+					cout << "Hence tries to strike the enemy axe!!!" << endl;
+					combatChance = rand() % 100;
+					if (combatChance <= 14 && combatChance >= 0) {
+						cout << "Hence's strike made contact!!!" << endl;
+						bossHealth = bossHealth - 45;
+						if (bossHealth > 0) {
+							cout << "Rok's health is " << bossHealth << "/200 HP" << endl;
+						}
+					} else {
+						cout << "OH NO!!! Hence's strike made no contact" << endl;
+						cout << "Rok lunges at Hence!!!" << endl;
+						combatChance = rand() % 100;
+						if (combatChance <= 49 && combatChance >= 0) {
+							cout << "Rok inflicted damage on Hence!!!" << endl;
+							userHealth = userHealth - 10;
+							if (userHealth > 0) {
+								cout << "Hence's health is " << userHealth << "/100 HP" << endl;
+							} else if (userHealth <= 0) {
+								cout << "Hence has been defeated!!!" << endl;
+								cout << "GAME OVER" << endl;
+								return 0;
+							}
+						} else {
+							cout << "Rok's attack missed!!!" << endl;
+						}
+						/*if (ans1 == 'i') {
+							cout << "Would you like to change your weapon, take a potion, or raise stats?" << endl;
+							cin >> inventoryAns; // Must fix later!!!
+						}*/
+					}
 				}
+				
+				if (ans1 == 'h') {
+					cout << "Hence tries to strike the enemy halberd!!!" << endl;
+					combatChance = rand() % 100;
+					if (combatChance <= 79 && combatChance >= 0) {
+						cout << "Hence's strike made contact!!!" << endl;
+						bossHealth = bossHealth - 10;
+						if (bossHealth > 0) {
+							cout << "Rok's health is " << bossHealth << "/200 HP" << endl;
+						}
+					} else {
+						cout << "OH NO!!! Hence's strike made no contact" << endl;
+						cout << "Rok lunges at Hence!!!" << endl;
+						combatChance = rand() % 100;
+						if (combatChance <= 49 && combatChance >= 0) {
+							cout << "Rok inflicted damage on Hence!!!" << endl;
+							userHealth = userHealth - 10;
+							if (userHealth > 0) {
+								cout << "Hence's health is " << userHealth << "/100 HP" << endl;
+							} else if (userHealth <= 0) {
+								cout << "Hence has been defeated!!!" << endl;
+								cout << "GAME OVER" << endl;
+								return 0;
+							}
+						} else {
+							cout << "Rok's attack missed!!!" << endl;
+						}
+						
+					}
+				}
+}
+			
+
+				
 			}
 			cout << "Rok: Argh I'm dying" << endl;
 			cout << "Hence defeated Rok!!!" << endl;
