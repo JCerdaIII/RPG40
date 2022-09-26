@@ -88,7 +88,11 @@ int main() {
 		cout << "He came to the island and stole all of the wealth from the people in the village and kidnapped the king and queen." << endl;
 		cout << "Hence who is a trained warrior is on the quest to defeat Rok and gets the village's wealth" << endl;
 		cout << CYAN << "Hence: “I will take you down, freak.” minion: “ ha, don’t make me laugh.” (battle starts)" << RESET << endl;
+<<<<<<< HEAD
 		cout << RED << "Minion: “ you will never beat Rok.”" << RESET << endl;
+=======
+		cout << RED << "Minion: “ you will never beat Rok.”" << RESET << endl; 
+>>>>>>> 25c66b92a4ce772ae1096b163889d66460281d60
 		cout << CYAN << "Hence: “ I will and save my village.”" << RESET << endl;
 		cout << RED << "Minion: “ How will you do that, you’re a weak creature." << RESET << endl;
 		cout << CYAN <<  "Hence: “you’re all talk, actions will prove who’s stronger.”" << RESET << endl;
@@ -103,7 +107,11 @@ int main() {
 		cout << WHITE << "Because Hence felt responsible for everyone in the village, he felt he should win, but he didn't know how to get past the gate and traps set on the bridge. So he was highly stressed out just at the thought of it." << endl;
 		cout << "During a night walk, he met a strange man who told him that the the village next to the bridge had people who had keys that can open the gate and disarm the traps." << RESET << endl;
 		cout << CYAN << "Hence: “Wow, how would I get the keys from them these people?”" << RESET << endl;
+<<<<<<< HEAD
 		cout << GREEN << "A strange man: “They will ask you a riddle if you get the riddle right then you get one of five keys. Once you have all five keys you will be able to open the gate and dissarm the traps. There will also be weapons there that can help you with your battle.”" << endl;
+=======
+		cout << GREEN <<"A strange man: “They will ask you a riddle if you get the riddle right then you get one of five keys. Once you have all five keys you will be able to open the gate and dissarm the traps. There will also be weapons there that can help you with your battle.”" << endl;
+>>>>>>> 25c66b92a4ce772ae1096b163889d66460281d60
 		cout << "" << endl;
 		cout << "" << endl;
 		cout << RESET;
@@ -112,7 +120,7 @@ int main() {
 	}
 
 
-	const int ROWS = world_map.size();
+	const int ROWS = world_map.size(); 
 	const int COLS = world_map.at(0).size();
 	const int FPS = 60;
 	int row = ROWS / 5, col = COLS / 5;
@@ -124,6 +132,7 @@ int main() {
 		if (c == 'Q') break;
 		if (c == 'I') {
 			cout << "Your inventory has 3 spots for wepons." << endl;
+<<<<<<< HEAD
 			for (i = 0; i < inv.size(); ++i) {
 				cout << inv.at(i) << endl;
 			}
@@ -131,6 +140,15 @@ int main() {
 		if (c == 'W') row--;
 		if (c == 'S') row++;
 		if (c == 'A') col--;
+=======
+			for (i = 0; i < inv.size(); ++i){
+			cout << inv.at(i) << endl;
+			}
+		}
+		if (c == 'W' ) row--;
+		if (c == 'S' ) row++;
+		if (c == 'A' ) col--;
+>>>>>>> 25c66b92a4ce772ae1096b163889d66460281d60
 		if (c == 'D') col++;
 		if (!(row == last_row and col == last_col)) {
 			print_world(row, col);
@@ -143,6 +161,24 @@ int main() {
 			cout << "Press 'I' to check inventory" << endl;
 			cout.flush();
 		}
+		
+		
+		if (get_world_location(row, col) == '*') {
+			movecursor(ROWS + 2, 0);
+			cout << YELLOW << "YOU ARE AT THE EDGE OF THE ISLAND TURN BACK OR YOU WILL DIE!!!" << endl;
+			cout << RESET;
+			}
+
+		
+		if (get_world_location(row, col) == '~') {
+			movecursor(ROWS + 2, 0);
+			clearscreen();
+			cout << YELLOW << "YOU DIED!!!" << endl;
+			cout << RESET;
+			usleep(3);
+			break;
+			}
+
 
 
 		if (get_world_location(row, col) == '*') {
@@ -326,10 +362,11 @@ int main() {
 			inv.at(2) = "Halberd";
 			weaponHalberd = true;
 		}
-
-
+		 		
+	
 		if (get_world_location(row, col) == 'b') {
 			movecursor(ROWS + 2, 0);
+<<<<<<< HEAD
 			if (keyCount == 5) {
 				cout << "Traps are now disarmed you can now cross the bridge safely." << endl;
 			} else {
@@ -349,8 +386,31 @@ int main() {
 			cout << RESET;
 			usleep(3);
 			break;
+=======
+			if(keyCount == 5){
+			cout << "Traps are now disarmed you can now cross the bridge safely." << endl;
+			}
+			else{
+				cout << "You do not have 5 keys yet" << endl;
+				cout << "If you step on 't' (trap) with out the 5 keys to disarm them you will die!!!" << endl;
+			}
+>>>>>>> 25c66b92a4ce772ae1096b163889d66460281d60
 		}
 
+		
+		if (get_world_location(row, col) == 't' and keyCount == 5) {
+			set_world_location(row, col, ' ');
+			movecursor(ROWS + 2, 0);
+			cout << "You unarmed the trap" << endl;
+			}
+		else if (get_world_location(row, col) == 't' and keyCount != 5){
+			clearscreen();
+			cout << YELLOW << "YOU DIED!!!" << endl;
+			cout << RESET;
+			usleep(3);
+			break;
+			}
+		
 
 		if (get_world_location(row, col) == 'T') {
 			set_world_location(row, col, ' ');
@@ -362,18 +422,40 @@ int main() {
 			cout << RESET;
 			cout << YELLOW << "Thrak: “Hehe good luck with that, you can’t beat me and master Rok.”" << endl;
 			cout << RESET;
+<<<<<<< HEAD
 			cout << CYAN << "Hence: “We will see about that.”" << endl;
+=======
+			cout << CYAN <<"Hence: “We will see about that.”" << endl;
+>>>>>>> 25c66b92a4ce772ae1096b163889d66460281d60
 			cout << RESET;
 			set_raw_mode(false);
 			while (miniBossHealth > 0) {
 				cout << "f: Fight or i: Inventory" << endl;
 				cin >> ans1;
 				if (ans1 == 'f') {
+<<<<<<< HEAD
 
 					cout << "s. Sword, a. Axe, or h. halberd" << endl;
 					cin >> ans1;
 					if (ans1 == 's') {
 						cout << "Hence tries to strike the enemy!!!" << endl;
+=======
+					
+							    cout << "s. Sword, a. Axe, or h. halberd" << endl;
+				    cin >> ans1;
+				    if (ans1 == 's') {
+					cout << "Hence tries to strike the enemy!!!" << endl;
+					combatChance = rand() % 100;
+					if (combatChance <= 49 && combatChance >= 0) {
+						cout << "Hence's strike made contact!!!" << endl;
+						miniBossHealth = miniBossHealth - 15;
+						if (miniBossHealth > 0) {
+							cout << "Thrak's health is " << miniBossHealth << "/100 HP" << endl;
+						}
+					} else {
+						cout << "OH NO!!! Hence's strike made no contact" << endl;
+						cout << "Thrak lunges at Hence!!!" << endl;
+>>>>>>> 25c66b92a4ce772ae1096b163889d66460281d60
 						combatChance = rand() % 100;
 						if (combatChance <= 49 && combatChance >= 0) {
 							cout << "Hence's strike made contact!!!" << endl;
@@ -400,6 +482,7 @@ int main() {
 							}
 						}
 					}
+<<<<<<< HEAD
 					if (ans1 == 'a' and weaponAxe == true) {
 						cout << "Hence tries to strike the enemy axe!!!" << endl;
 						combatChance = rand() % 100;
@@ -426,6 +509,34 @@ int main() {
 							} else {
 								cout << "Thrak's attack missed!!!" << endl;
 							}
+=======
+				}
+            if (ans1 == 'a' and weaponAxe == true) {
+					cout << "Hence tries to strike the enemy axe!!!" << endl;
+					combatChance = rand() % 100;
+					if (combatChance <= 14 && combatChance >= 0) {
+						cout << "Hence's strike made contact!!!" << endl;
+						miniBossHealth = miniBossHealth - 45;
+						if (miniBossHealth > 0) {
+							cout << "Thrak's health is " << miniBossHealth << "/100 HP" << endl;
+						}
+					} else {
+						cout << "OH NO!!! Hence's strike made no contact" << endl;
+						cout << "Thrak lunges at Hence!!!" << endl;
+						combatChance = rand() % 100;
+						if (combatChance <= 49 && combatChance >= 0) {
+							cout << "Thrak inflicted damage on Hence!!!" << endl;
+							userHealth = userHealth - 10;
+							if (userHealth > 0) {
+								cout << "Hence's health is " << userHealth << "/100 HP" << endl;
+							} else if (userHealth <= 0) {
+								cout << "Hence has been defeated!!!" << endl;
+								cout << "GAME OVER" << endl;
+								return 0;
+							}
+						} else {
+							cout << "Thrak's attack missed!!!" << endl;
+>>>>>>> 25c66b92a4ce772ae1096b163889d66460281d60
 						}
 					} else if (ans1 == 'a' and weaponAxe == false) {
 						cout << "You do not have an axe in your inventory!" << endl;
@@ -465,7 +576,58 @@ int main() {
 
 
 				}
+				else if (ans1 == 'a' and weaponAxe == false){
+					cout << "You do not have an axe in your inventory!" << endl;
+				}
+				
+				if (ans1 == 'h' and weaponHalberd == true) {
+					cout << "Hence tries to strike the enemy halberd!!!" << endl;
+					combatChance = rand() % 100;
+					if (combatChance <= 79 && combatChance >= 0) {
+						cout << "Hence's strike made contact!!!" << endl;
+						miniBossHealth = miniBossHealth - 10;
+						if (miniBossHealth > 0) {
+							cout << "Thrak's health is " << miniBossHealth << "/100 HP" << endl;
+						}
+					} else {
+						cout << "OH NO!!! Hence's strike made no contact" << endl;
+						cout << "Thrak lunges at Hence!!!" << endl;
+						combatChance = rand() % 100;
+						if (combatChance <= 49 && combatChance >= 0) {
+							cout << "Thrak inflicted damage on Hence!!!" << endl;
+							userHealth = userHealth - 10;
+							if (userHealth > 0) {
+								cout << "Hence's health is " << userHealth << "/100 HP" << endl;
+							} else if (userHealth <= 0) {
+								cout << "Hence has been defeated!!!" << endl;
+								cout << "GAME OVER" << endl;
+								return 0;
+							}
+						} else {
+							cout << "Thrak's attack missed!!!" << endl;
+						}
+						
+					}
+				}
+				else if (ans1 == 'h' and weaponHalberd == false){
+					cout << "You do not have a halberd in your inventory!" << endl;
+				}
+					
+				
+				}
+}
+
+			cout << RED  << "Thrak: “Thats impossible I LOST!”" << endl;
+			cout << "Thrak: “You maybe good kid but your power will never compared to Master Rok.”" << RESET << endl;
+			cout << CYAN << "Hence: “Sure bud and now go back to the underworld freak”" << RESET << endl;
+			cout << YELLOW << "DO NOT MOVE UP OR DOWN BECAUSE YOU WILL FALL OFF THE ISLAND!!!" << RESET << endl;
+			cout << "Thrak went back where he came from and Hence continued his journey" << endl;
+			cout << "Press 'a' or 'd' to contiune." << endl;
+			if (userHealth < 80){
+			cout << "Hence treated his wounds to prepare for the final battle against Rok" << endl;
+			userHealth = 80;
 			}
+<<<<<<< HEAD
 
 			cout << RED  << "Thrak: “Thats impossible I LOST!”" << endl;
 			cout << "Thrak: “You maybe good kid but your power will never compared to Master Rok.”" << RESET << endl;
@@ -483,6 +645,14 @@ int main() {
 
 
 		if (get_world_location(row, col) == 'R') {
+=======
+			set_raw_mode(true);	
+				
+			}
+		
+
+			if (get_world_location(row, col) == 'R') {
+>>>>>>> 25c66b92a4ce772ae1096b163889d66460281d60
 			set_world_location(row, col, ' ');
 			movecursor(ROWS + 2, 0);
 			cout << "Now it's time that Rok and Hence fight!!!" << endl;
@@ -491,9 +661,10 @@ int main() {
 			cout << RED << "Rok: “Ha, we will see”" << RESET << endl;
 			set_raw_mode(false);
 			while (bossHealth > 0) {
-				cout << "f: Fight or i: Inventory" << endl;
+					cout << "f: Fight or i: Inventory" << endl;
 				cin >> ans1;
 				if (ans1 == 'f') {
+<<<<<<< HEAD
 					cout << "s. Sword, a. Axe, or h. halberd" << endl;
 					cin >> ans1;
 					if (ans1 == 's') {
@@ -504,6 +675,60 @@ int main() {
 							bossHealth = bossHealth - 15;
 							if (bossHealth > 0) {
 								cout << "Rok's health is " << bossHealth << "/200 HP" << endl;
+=======
+				    cout << "s. Sword, a. Axe, or h. halberd" << endl;
+				    cin >> ans1;
+				    if (ans1 == 's') {
+					cout << "Hence tries to strike the enemy!!!" << endl;
+					combatChance = rand() % 100;
+					if (combatChance <= 49 && combatChance >= 0) {
+						cout << "Hence's strike made contact!!!" << endl;
+						bossHealth = bossHealth - 15;
+						if (bossHealth > 0) {
+							cout << "Rok's health is " << bossHealth << "/200 HP" << endl;
+						}
+					} else {
+						cout << "OH NO!!! Hence's strike made no contact" << endl;
+						cout << "Rok lunges at Hence!!!" << endl;
+						combatChance = rand() % 100;
+						if (combatChance <= 49 && combatChance >= 0) {
+							cout << "Rok inflicted damage on Hence!!!" << endl;
+							userHealth = userHealth - 10;
+							if (userHealth > 0) {
+								cout << "Hence's health is " << userHealth << "/100 HP" << endl;
+							} else if (userHealth <= 0) {
+								cout << "Hence has been defeated!!!" << endl;
+								cout << "GAME OVER" << endl;
+								return 0;
+							}
+						} else {
+							cout << "Rok's attack missed!!!" << endl;
+						}
+					}
+				}
+            if (ans1 == 'a') {
+					cout << "Hence tries to strike the enemy axe!!!" << endl;
+					combatChance = rand() % 100;
+					if (combatChance <= 14 && combatChance >= 0) {
+						cout << "Hence's strike made contact!!!" << endl;
+						bossHealth = bossHealth - 45;
+						if (bossHealth > 0) {
+							cout << "Rok's health is " << bossHealth << "/200 HP" << endl;
+						}
+					} else {
+						cout << "OH NO!!! Hence's strike made no contact" << endl;
+						cout << "Rok lunges at Hence!!!" << endl;
+						combatChance = rand() % 100;
+						if (combatChance <= 49 && combatChance >= 0) {
+							cout << "Rok inflicted damage on Hence!!!" << endl;
+							userHealth = userHealth - 10;
+							if (userHealth > 0) {
+								cout << "Hence's health is " << userHealth << "/100 HP" << endl;
+							} else if (userHealth <= 0) {
+								cout << "Hence has been defeated!!!" << endl;
+								cout << "GAME OVER" << endl;
+								return 0;
+>>>>>>> 25c66b92a4ce772ae1096b163889d66460281d60
 							}
 						} else {
 							cout << "OH NO!!! Hence's strike made no contact" << endl;
@@ -583,9 +808,46 @@ int main() {
 						}
 					}
 				}
+<<<<<<< HEAD
 
 
 
+=======
+				
+				if (ans1 == 'h') {
+					cout << "Hence tries to strike the enemy halberd!!!" << endl;
+					combatChance = rand() % 100;
+					if (combatChance <= 79 && combatChance >= 0) {
+						cout << "Hence's strike made contact!!!" << endl;
+						bossHealth = bossHealth - 10;
+						if (bossHealth > 0) {
+							cout << "Rok's health is " << bossHealth << "/200 HP" << endl;
+						}
+					} else {
+						cout << "OH NO!!! Hence's strike made no contact" << endl;
+						cout << "Rok lunges at Hence!!!" << endl;
+						combatChance = rand() % 100;
+						if (combatChance <= 49 && combatChance >= 0) {
+							cout << "Rok inflicted damage on Hence!!!" << endl;
+							userHealth = userHealth - 10;
+							if (userHealth > 0) {
+								cout << "Hence's health is " << userHealth << "/100 HP" << endl;
+							} else if (userHealth <= 0) {
+								cout << "Hence has been defeated!!!" << endl;
+								cout << "GAME OVER" << endl;
+								return 0;
+							}
+						} else {
+							cout << "Rok's attack missed!!!" << endl;
+						}
+						
+					}
+				}
+}
+			
+
+				
+>>>>>>> 25c66b92a4ce772ae1096b163889d66460281d60
 			}
 			set_raw_mode(true);
 			clearscreen();
