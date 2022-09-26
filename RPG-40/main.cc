@@ -1,7 +1,7 @@
 //Fill out this comment with your names and which bullet points you did
 //Partners:Johnnie Cerda, Baron Lopez, Hebah Fadah, Elena Mohler, Jesse Allen
 //Bullet Points:1)World Map-Johnnie,Baron 2)Combat-Johnnie,Baron 3)Color-Whole Group 4)5 Puzzles-Elena 5)Dialoge/World descriptions-Jesse,Hebah
-//Extra Credit: Inventory-Elena
+//Extra Credit: -Nonblocking I/O -Inventory-Elena 
 //URL to cover art and music:
 #include <iostream>
 #include "/public/colors.h"
@@ -87,13 +87,14 @@ int main() {
 		cout << "This island has been in peace for a very long time until the day that Rok arrived." << endl;
 		cout << "He came to the island and stole all of the wealth from the people in the village and kidnapped the king and queen." << endl;
 		cout << "Hence who is a trained warrior is on the quest to defeat Rok and gets the village's wealth" << endl;
-		cout << CYAN << "Hence: “I will take you down, freak.” minion: “ ha, don’t make me laugh.” (battle starts)" << RESET << endl;
-		cout << RED << "Minion: “ you will never beat Rok.”" << RESET << endl;
-		cout << CYAN << "Hence: “ I will and save my village.”" << RESET << endl;
-		cout << RED << "Minion: “ How will you do that, you’re a weak creature." << RESET << endl;
-		cout << CYAN <<  "Hence: “you’re all talk, actions will prove who’s stronger.”" << RESET << endl;
-		cout << RED << "Minion: “ Ok, we’ll have a battle on the other part of the island and if you win you’ll get the village’s wealth back but if we win then we will keep the wealth we've stolen and control the whole village”" << RESET << endl;
-		cout << CYAN << "” Hence: “ Ok, see you then loser”" << RESET << endl;
+		cout << CYAN << "Hence: “I will take you down, freak.”" << RESET << endl;
+		cout << RED <<"Minion: “Ha, don’t make me laugh.” (battle starts)" << RESET << endl;
+		cout << RED << "Minion: “You will never beat Rok.”" << RESET << endl;
+		cout << CYAN << "Hence: “I will and save my village.”" << RESET << endl;
+		cout << RED << "Minion: “How will you do that, you’re a weak creature." << RESET << endl;
+		cout << CYAN <<  "Hence: “You’re all talk, actions will prove who’s stronger.”" << RESET << endl;
+		cout << RED << "Minion: “Ok, we’ll have a battle on the other part of the island and if you win you’ll get the village’s wealth back but if we win then we will keep the wealth we've stolen and control the whole village”" << RESET << endl;
+		cout << CYAN << "” Hence: “Ok, see you then loser”" << RESET << endl;
 		sleep(20);
 		clearscreen();
 	}
@@ -129,11 +130,10 @@ int main() {
 			}
 			cout << "Keys: " << keyCount << "/5" << endl;
 		}
-		if (c == 'W') row--;
-		if (c == 'S') row++;
-		if (c == 'A') col--;
-
-		if (c == 'D') col++;
+		if (c == 'W' or c == UP_ARROW) row--;
+		if (c == 'S' or c == DOWN_ARROW) row++;
+		if (c == 'A' or c == LEFT_ARROW) col--;
+		if (c == 'D' or c == RIGHT_ARROW) col++;
 		if (!(row == last_row and col == last_col)) {
 			print_world(row, col);
 			last_row = row;
@@ -376,7 +376,7 @@ int main() {
 			cout << RESET;
 			set_raw_mode(false);
 			while (miniBossHealth > 0) {
-				cout << "f: Fight or i: Inventory" << endl;
+				cout << "f: Fight" << endl;
 				cin >> ans1;
 				if (ans1 == 'f') {
 
@@ -505,7 +505,7 @@ int main() {
 			cout << RED << "Rok: “Ha, we will see”" << RESET << endl;
 			set_raw_mode(false);
 			while (bossHealth > 0) {
-				cout << "f: Fight or i: Inventory" << endl;
+				cout << "f: Fight" << endl;
 				cin >> ans1;
 				if (ans1 == 'f') {
 					cout << "s. Sword, a. Axe, or h. halberd" << endl;
