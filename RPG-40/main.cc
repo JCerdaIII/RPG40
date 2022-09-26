@@ -76,9 +76,10 @@ int main() {
 	char ans1;
 	char inventoryAns;
 	int weaponSword = 1;
-//	int weaponAxe;
-//	int weaponHalberd;
+	bool weaponAxe = false;
+	bool weaponHalberd = false;
 	int i;
+	int keyCount = 0;
 	int combatChance;
 	int userHealth = 100;
 	int miniBossHealth = 100;
@@ -91,7 +92,7 @@ int main() {
 
 		cout << YELLOW << "Title" << endl;
 		cout << RESET;
-		sleep(5);
+		sleep(1);
 		clearscreen();
 	}
 
@@ -110,7 +111,7 @@ int main() {
 		cout << RESET;
 		cout << CYAN << "” Hence: “ Ok, see you then loser”" << endl;
 		cout << RESET;
-		sleep(7);
+		sleep(1);
 		clearscreen();
 	}
 
@@ -125,7 +126,7 @@ int main() {
 		cout << "" << endl;
 		cout << "" << endl;
 		cout << RESET;
-		sleep(7);
+		sleep(1);
 		clearscreen();
 	}
 
@@ -185,6 +186,7 @@ int main() {
 			}
 			if (ans1 == 'a') {
 				cout << "Good Job" << endl;
+				keyCount++;
 				set_raw_mode(true);
 			}
 
@@ -214,6 +216,7 @@ int main() {
 			}
 			if (ans1 == 'c') {
 				cout << "Good Job" << endl;
+				keyCount++;
 				set_raw_mode(true);
 			}
 
@@ -243,6 +246,7 @@ int main() {
 			}
 			if (ans1 == 'c') {
 				cout << "Good Job" << endl;
+				keyCount++;
 				set_raw_mode(true);
 			}
 
@@ -272,6 +276,7 @@ int main() {
 			}
 			if (ans1 == 'c') {
 				cout << "Good Job" << endl;
+				keyCount++;
 				set_raw_mode(true);
 			}
 
@@ -301,6 +306,7 @@ int main() {
 			}
 			if (ans1 == 'b') {
 				cout << "Good Job" << endl;
+				keyCount++;
 				set_raw_mode(true);
 			}
 
@@ -312,24 +318,32 @@ int main() {
 			movecursor(ROWS + 2, 0);
 			cout << "Hence found a sturdy axe!!!" << endl;
 			inv.at(1)  = "Axe";
+			weaponAxe = true;
 		}
 		if (get_world_location(row, col) == '9') {
 			set_world_location(row, col, ' ');
 			movecursor(ROWS + 2, 0);
 			cout << "Hence found a halberd!!!" << endl;
 			inv.at(2) = "Halberd";
+			weaponHalberd = true;
 		}
-
-
+		
+		/*if (get_world_location(row, col) == 'k'){
+			movecursor(ROWS + 2, 0);
+			print*/ 		
+	
 		if (get_world_location(row, col) == 'b') {
 			movecursor(ROWS + 2, 0);
+			if(keyCount == 5){
 			cout << "YOU WIN!!!!" << endl;
 			usleep(3);
 			break;
+			}
+			else{
+				cout << "You do not have 5 keys yet" << endl;
+			}
 		}
-		if (c == ERR) usleep(1'000'000 / FPS);
-
-
+		
 
 		if (get_world_location(row, col) == '6') {
 			set_world_location(row, col, ' ');
@@ -377,7 +391,7 @@ int main() {
 						}*/
 					}
 				}
-            if (ans1 == 'a') {
+            if (ans1 == 'a' and weaponAxe == true) {
 					cout << "Hence tries to strike the enemy axe!!!" << endl;
 					combatChance = rand() % 100;
 					if (combatChance <= 14 && combatChance >= 0) {
@@ -410,8 +424,11 @@ int main() {
 							}*/
 					}
 				}
+				else if (ans1 == 'a' and weaponAxe == false){
+					cout << "You do not have an axe in your inventory!" << endl;
+				}
 				
-				if (ans1 == 'h') {
+				if (ans1 == 'h' and weaponHalberd == true) {
 					cout << "Hence tries to strike the enemy halberd!!!" << endl;
 					combatChance = rand() % 100;
 					if (combatChance <= 79 && combatChance >= 0) {
@@ -440,7 +457,12 @@ int main() {
 						
 					}
 				}
-}
+				else if (ans1 == 'h' and weaponHalberd == false){
+					cout << "You do not have a halberd in your inventory!" << endl;
+				}
+					
+				
+				}
 }
 
 			cout << "Thrak: Argh I'm dying" << endl;
