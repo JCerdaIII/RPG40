@@ -1,7 +1,7 @@
 //Fill out this comment with your names and which bullet points you did
-//Partners:Johnnie Cerda, Baron Lopez
-//Bullet Points:
-//Extra Credit:
+//Partners:Johnnie Cerda, Baron Lopez, Hebah Fadah, Elena Mohler, Jesse Allen
+//Bullet Points:1)World Map-Johnnie,Baron 2)Combat-Johnnie,Baron 3)Color-Whole Group 4)5 Puzzles-Elena 5)Dialoge/World descriptions-Jesse,Hebah
+//Extra Credit: Inventory-Elena
 //URL to cover art and music:
 #include <iostream>
 #include "/public/colors.h"
