@@ -127,6 +127,7 @@ int main() {
 			for (i = 0; i < inv.size(); ++i) {
 				cout << inv.at(i) << endl;
 			}
+			cout << "Keys: " << keyCount << "/5" << endl;
 		}
 		if (c == 'W') row--;
 		if (c == 'S') row++;
@@ -188,6 +189,7 @@ int main() {
 			if (ans1 == 'a') {
 				cout << "Good Job" << endl;
 				keyCount++;
+				cout << "Keys: " << keyCount << "/5" << endl;
 				set_raw_mode(true);
 			}
 
@@ -218,6 +220,7 @@ int main() {
 			if (ans1 == 'c') {
 				cout << "Good Job" << endl;
 				keyCount++;
+				cout << "Keys: " << keyCount << "/5" << endl;
 				set_raw_mode(true);
 			}
 
@@ -278,6 +281,7 @@ int main() {
 			if (ans1 == 'c') {
 				cout << "Good Job" << endl;
 				keyCount++;
+				cout << "Keys: " << keyCount << "/5" << endl;
 				set_raw_mode(true);
 			}
 
@@ -308,6 +312,7 @@ int main() {
 			if (ans1 == 'b') {
 				cout << "Good Job" << endl;
 				keyCount++;
+				cout << "Keys: " << keyCount << "/5" << endl;
 				set_raw_mode(true);
 			}
 
